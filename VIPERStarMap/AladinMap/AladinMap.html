@@ -6,15 +6,17 @@
 
 
 <div id="aladin-lite-div" style="width: 100%; height:98%;" class="aladin-container"><style type="text/css"> .aladin-reticleColor { color: rgb(178, 50, 178); font-weight:bold;} </style>
-<div class="aladin-location"><select class="aladin-frameChoice"><option value="J2000" selected="selected">J2000</option><option value="Galactic">GAL</option></select>
-<!-- <span class="aladin-location-text aladin-reticleColor">02 56 7.145 +09 15 39.70</span> --></div>
+<div class="aladin-location"><select class="aladin-frameChoice"><option value="J2000" selected="selected">J2000</option><option value="Galactic">GAL</option></select></div>
 <div class="aladin-zoomControl"><a href="#" class="zoomPlus" title="Zoom in">+</a><a href="#" class="zoomMinus" title="Zoom out">–</a></div>
 <div class="aladin-fullscreenControl aladin-maximize" title="Full screen"></div>
 <div class="aladin-popup-container">
-<div class="aladin-popup"><a class="aladin-closeBtn">×</a>
+<div class="aladin-popup"><a class="aladin-closeBtn"></a>
 <div class="aladin-popupTitle"></div>
 <div class="aladin-popupText"></div></div>
-<div class="aladin-popup-arrow"></div></div><canvas class="aladin-imageCanvas" width="604" height="926"></canvas><canvas class="aladin-catalogCanvas" width="604" height="926"></canvas><canvas class="aladin-reticleCanvas" width="604" height="926" style="cursor: none;"></canvas>
+<div class="aladin-popup-arrow"></div></div>
+<canvas class="aladin-imageCanvas" width="604" height="926"></canvas>
+<canvas class="aladin-catalogCanvas" width="604" height="926"></canvas>
+<canvas class="aladin-reticleCanvas" width="604" height="926" style="cursor: none;"></canvas>
 <div class="aladin-layersControl-container" title="Manage layers">
 <div class="aladin-layersControl"></div></div>
 <div class="aladin-box aladin-layerBox aladin-cb-list"></div>
@@ -23,5 +25,7 @@
 <div class="aladin-box aladin-gotoBox"><a class="aladin-closeBtn">×</a>
 <div style="clear: both;"></div><form class="aladin-target-form">Go to: <input type="text" placeholder="Object name/position"></form></div></div>
 <script type="text/javascript" src="http://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
-<script type="text/javascript">var aladin = A.aladin('#aladin-lite-div', {fov:1000});</script>
+<script type="text/javascript">var aladin = A.aladin('#aladin-lite-div', {target: 'LMC', fov: 1000});</script>
+<script type="text/javascript">var hips = A.catalogHiPS('http://axel.u-strasbg.fr/HiPSCatService/Simbad', {onClick: 'showPopup', shape: 'square', name: 'Object name overlay'});</script>
+<script type="text/javascript">aladin.addCatalog(hips);</script>
 </body></html>

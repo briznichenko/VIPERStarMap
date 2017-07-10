@@ -27,7 +27,7 @@
 - (void) makeView
 {
     self.backgroundColor = [UIColor whiteColor];
-    mainColor = [UIColor colorWithRed:0.0f green:19.0f blue:51.0f alpha:1.0f];
+    mainColor = [UIColor colorWithRed:0.0f green:0.07450980392f blue:0.2f alpha:1.0f];
     
     [self makeMap];
     [self makeSearch];
