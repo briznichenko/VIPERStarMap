@@ -7,7 +7,36 @@
 //
 
 #import "MapInteractor.h"
+#import "MapEntity.h"
 
 @implementation MapInteractor
+
+-(instancetype)init
+{
+    self = [super init];
+    if(self)
+        self.entity = [MapEntity new];
+    return self;
+}
+
+-(NSString *)getSkyMapSource
+{
+    return [self.entity getSkyMapSource];
+}
+
+-(NSString *)getAladinMapSource
+{
+    return [self.entity getAladinMapSource];
+}
+
+-(NSString *)getEntityDataFromSource:(BOOL) source
+{
+    return source? [self getSkyMapSource] : [self getAladinMapSource];
+}
+
+-(void)setEntityData:(NSString*) data
+{
+    
+}
 
 @end

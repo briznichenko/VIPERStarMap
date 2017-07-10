@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D4A45851F0F94AA00E37524 /* RootAssembler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A45841F0F94AA00E37524 /* RootAssembler.m */; };
+		7D4A45881F0F94B500E37524 /* RootRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A45871F0F94B500E37524 /* RootRouter.m */; };
+		7D4A458A1F0FA26800E37524 /* SkyMap.html in Resources */ = {isa = PBXBuildFile; fileRef = 7D4A45891F0FA26800E37524 /* SkyMap.html */; };
+		7DC7A90D1F1396E200F93119 /* AladinMap in Resources */ = {isa = PBXBuildFile; fileRef = 7DC7A90C1F1396E200F93119 /* AladinMap */; };
+		7DC7A90F1F139D4100F93119 /* AladinMap.html in Resources */ = {isa = PBXBuildFile; fileRef = 7DC7A90E1F139D4100F93119 /* AladinMap.html */; };
+		7DC7A9121F13BB8F00F93119 /* Aladin.css in Sources */ = {isa = PBXBuildFile; fileRef = 7DC7A9111F13BB8F00F93119 /* Aladin.css */; };
 		CE3910701F0E772800BBD898 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE39106F1F0E772800BBD898 /* main.m */; };
 		CE3910731F0E772800BBD898 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3910721F0E772800BBD898 /* AppDelegate.m */; };
 		CE39107B1F0E772800BBD898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE39107A1F0E772800BBD898 /* Assets.xcassets */; };
@@ -21,6 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D4A45831F0F94AA00E37524 /* RootAssembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootAssembler.h; sourceTree = "<group>"; };
+		7D4A45841F0F94AA00E37524 /* RootAssembler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootAssembler.m; sourceTree = "<group>"; };
+		7D4A45861F0F94B500E37524 /* RootRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootRouter.h; sourceTree = "<group>"; };
+		7D4A45871F0F94B500E37524 /* RootRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootRouter.m; sourceTree = "<group>"; };
+		7D4A45891F0FA26800E37524 /* SkyMap.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = SkyMap.html; path = Resources/TextFiles/SkyMap.html; sourceTree = "<group>"; };
+		7DC7A90C1F1396E200F93119 /* AladinMap */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AladinMap; sourceTree = "<group>"; };
+		7DC7A90E1F139D4100F93119 /* AladinMap.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = AladinMap.html; path = AladinMap/AladinMap.html; sourceTree = "<group>"; };
+		7DC7A9111F13BB8F00F93119 /* Aladin.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Aladin.css; sourceTree = "<group>"; };
 		CE39106B1F0E772800BBD898 /* VIPERStarMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIPERStarMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE39106F1F0E772800BBD898 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE3910711F0E772800BBD898 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,6 +71,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D4A457E1F0F946600E37524 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7D4A45821F0F949B00E37524 /* RootWireframe */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		7D4A45821F0F949B00E37524 /* RootWireframe */ = {
+			isa = PBXGroup;
+			children = (
+				7D4A45861F0F94B500E37524 /* RootRouter.h */,
+				7D4A45871F0F94B500E37524 /* RootRouter.m */,
+				7D4A45831F0F94AA00E37524 /* RootAssembler.h */,
+				7D4A45841F0F94AA00E37524 /* RootAssembler.m */,
+			);
+			name = RootWireframe;
+			sourceTree = "<group>";
+		};
 		CE3910621F0E772800BBD898 = {
 			isa = PBXGroup;
 			children = (
@@ -77,19 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				CE3910851F0E779600BBD898 /* Application */,
-				CE39107A1F0E772800BBD898 /* Assets.xcassets */,
 				CE3910861F0E77A500BBD898 /* Classes */,
 				CE3910871F0E77AC00BBD898 /* Resources */,
-				CE39106E1F0E772800BBD898 /* Supporting Files */,
 			);
 			path = VIPERStarMap;
-			sourceTree = "<group>";
-		};
-		CE39106E1F0E772800BBD898 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		CE3910851F0E779600BBD898 /* Application */ = {
@@ -108,6 +132,7 @@
 		CE3910861F0E77A500BBD898 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7D4A457E1F0F946600E37524 /* Common */,
 				CE3910A61F0E796A00BBD898 /* MapModule */,
 			);
 			name = Classes;
@@ -116,6 +141,11 @@
 		CE3910871F0E77AC00BBD898 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7DC7A90C1F1396E200F93119 /* AladinMap */,
+				CE39107A1F0E772800BBD898 /* Assets.xcassets */,
+				7DC7A90E1F139D4100F93119 /* AladinMap.html */,
+				7DC7A9111F13BB8F00F93119 /* Aladin.css */,
+				7D4A45891F0FA26800E37524 /* SkyMap.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -272,7 +302,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DC7A90F1F139D4100F93119 /* AladinMap.html in Resources */,
 				CE39107B1F0E772800BBD898 /* Assets.xcassets in Resources */,
+				7D4A458A1F0FA26800E37524 /* SkyMap.html in Resources */,
+				7DC7A90D1F1396E200F93119 /* AladinMap in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +316,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D4A45881F0F94B500E37524 /* RootRouter.m in Sources */,
 				CE3910971F0E790300BBD898 /* MapPresenter.m in Sources */,
+				7D4A45851F0F94AA00E37524 /* RootAssembler.m in Sources */,
 				CE39109C1F0E792300BBD898 /* MapView.m in Sources */,
 				CE3910911F0E785E00BBD898 /* MapEntity.m in Sources */,
 				CE3910A51F0E796500BBD898 /* MapRouter.m in Sources */,
@@ -293,6 +328,7 @@
 				CE3910A21F0E795100BBD898 /* MapAssembler.m in Sources */,
 				CE3910941F0E786D00BBD898 /* MapInteractor.m in Sources */,
 				CE39109F1F0E793800BBD898 /* MapViewController.m in Sources */,
+				7DC7A9121F13BB8F00F93119 /* Aladin.css in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +468,7 @@
 				CE3910841F0E772800BBD898 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

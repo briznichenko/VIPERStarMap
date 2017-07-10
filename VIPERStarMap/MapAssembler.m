@@ -15,11 +15,7 @@
     self = [super init];
     if(self)
     {
-        self.view = [MapViewController new];
-        self.interactor = [MapInteractor new];
-        self.presenter = [MapPresenter new];
-        self.entity = [MapEntity new];
-        self.router = [MapRouter new];
+        self.presenter = [[MapPresenter alloc] init];
     }
     return self;
 }

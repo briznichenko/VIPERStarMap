@@ -29,7 +29,7 @@
 
 - (void)installRootViewControllertInto:(UIWindow *) window
 {
-    window.rootViewController = self.rootAssembler.presenter.mapView;
+    [self.rootAssembler showRootViewController:self.rootAssembler.presenter.view inWindow:window];
 }
 
 

@@ -9,6 +9,9 @@
 #import "MapView.h"
 
 @implementation MapView
+{
+    UIColor *mainColor;
+}
 
 - (instancetype) initAndInstallIntoParentViewController: (UIViewController*) parentViewController
 {
@@ -23,6 +26,9 @@
 
 - (void) makeView
 {
+    self.backgroundColor = [UIColor whiteColor];
+    mainColor = [UIColor colorWithRed:0.0f green:19.0f blue:51.0f alpha:1.0f];
+    
     [self makeMap];
     [self makeSearch];
     [self makeInnerConstraints];
@@ -30,14 +36,26 @@
 
 - (void) makeMap
 {
-    self.mapView = [UIWebView new];
-    [self addSubview:self.mapView];
+    self.map = [UIWebView new];
+    self.map.backgroundColor = mainColor;
+    self.map.scrollView.bounces = NO;
+    
+    [self addSubview:self.map];
 }
 
 - (void) makeSearch
 {
     self.searchField = [UITextField new];
+    
+    self.searchField.layer.borderWidth = 0.5f;
+    self.searchField.layer.borderColor = [UIColor blackColor].CGColor;
+    self.searchField.backgroundColor = mainColor;
+    
     self.searchButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.searchButton.backgroundColor = mainColor;
+    
+    self.searchButton.layer.borderWidth = 0.5f;
+    self.searchButton.layer.borderColor = [UIColor blackColor].CGColor;
     
     [self addSubview:self.searchField];
     [self addSubview:self.searchButton];
@@ -49,35 +67,34 @@
     
     self.searchField.translatesAutoresizingMaskIntoConstraints = NO;
     self.searchButton.translatesAutoresizingMaskIntoConstraints = NO;
-    self.mapView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.map.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [NSLayoutConstraint activateConstraints:@[
-                                              [self.searchField.topAnchor constraintEqualToAnchor:self.topAnchor],
-                                              [self.searchField.leftAnchor constraintEqualToAnchor:self.leftAnchor],
-                                              [self.searchField.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:searchFieldWidth],
-                                              
-                                              [self.searchButton.topAnchor constraintEqualToAnchor:self.topAnchor],
-                                              [self.searchButton.rightAnchor constraintEqualToAnchor:self.rightAnchor],
-                                              [self.searchButton.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier: 1.0f - searchFieldWidth],
-                                              [self.searchButton.heightAnchor constraintEqualToAnchor:self.searchField.heightAnchor],
-                                              
-                                              [self.mapView.topAnchor constraintEqualToAnchor:self.searchField.topAnchor],
-                                              [self.mapView.widthAnchor constraintEqualToAnchor:self.widthAnchor],
-                                              [self.mapView.heightAnchor constraintEqualToConstant:self.frame.size.height - self.searchField.frame.size.height]
-                                              ]];
+    [NSLayoutConstraint activateConstraints:
+     @[[self.searchField.topAnchor constraintEqualToAnchor:self.topAnchor],
+       [self.searchField.leftAnchor constraintEqualToAnchor:self.leftAnchor],
+       [self.searchField.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:searchFieldWidth],
+       
+       [self.searchButton.topAnchor constraintEqualToAnchor:self.topAnchor],
+       [self.searchButton.rightAnchor constraintEqualToAnchor:self.rightAnchor],
+       [self.searchButton.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier: 1.0f - searchFieldWidth],
+       [self.searchButton.heightAnchor constraintEqualToAnchor:self.searchField.heightAnchor],
+       
+       [self.map.topAnchor constraintEqualToAnchor:self.searchField.bottomAnchor],
+       [self.map.widthAnchor constraintEqualToAnchor:self.widthAnchor],
+       [self.map.heightAnchor constraintGreaterThanOrEqualToAnchor:self.heightAnchor constant: - self.searchField.frame.size.height]]];
 }
 
 - (void) makeOuterConstraints: (UIView*) parentView
 {
+    float topSpacing = [UIApplication sharedApplication].statusBarFrame.size.height;
     [parentView addSubview:self];
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints:@[
-                                              [self.topAnchor constraintEqualToAnchor:parentView.topAnchor],
-                                              [self.centerXAnchor constraintEqualToAnchor:parentView.centerXAnchor],
-                                              [self.widthAnchor constraintEqualToAnchor:parentView.widthAnchor],
-                                              [self.heightAnchor constraintEqualToAnchor:parentView.heightAnchor]
-                                              ]];
+    [NSLayoutConstraint activateConstraints:
+     @[[self.topAnchor constraintGreaterThanOrEqualToAnchor:parentView.topAnchor constant:topSpacing],
+       [self.centerXAnchor constraintEqualToAnchor:parentView.centerXAnchor],
+       [self.widthAnchor constraintEqualToAnchor:parentView.widthAnchor],
+       [self.heightAnchor constraintEqualToAnchor:parentView.heightAnchor]]];
 }
 
 @end

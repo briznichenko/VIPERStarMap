@@ -14,20 +14,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self setupWindow];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
     self.dependencies = [[AppDependencies alloc] init];
     [self.dependencies installRootViewControllertInto:self.window];
     
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
-
-- (void) setupWindow
-{
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor= [UIColor clearColor];
-    [self.window makeKeyAndVisible];
-}
-
 
 @end

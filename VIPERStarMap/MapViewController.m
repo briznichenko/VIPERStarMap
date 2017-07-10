@@ -7,17 +7,50 @@
 //
 
 #import "MapViewController.h"
-#import "MapView.h"
 
-@interface MapViewController ()
-@property (strong, nonatomic) MapView* mapView;
-@end
 
 @implementation MapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _mapView = [[MapView alloc] initAndInstallIntoParentViewController:self];
+}
+
+-(void)updateViewWithStringData:(NSString *)data
+{
+    [self.mapView.map loadHTMLString: [NSString stringWithContentsOfFile:data
+                                                                encoding:NSUTF8StringEncoding
+                                                                   error:nil] baseURL:nil];
+    NSString *html = [self.mapView.map stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"]; ;
+    NSLog(@"%@", html);
+}
+
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    NSString *html = [self.mapView.map stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"]; ;
+    NSLog(@"%@", html);
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSString *html = [self.mapView.map stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"]; ;
+    NSLog(@"%@", html);
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    NSLog(@"Failure");
+}
+
+-(void)getViewUpdates
+{
+    
+}
+
+-(void)initAndShowView:(void (^)(bool))completion
+{
+    self.mapView = [[MapView alloc] initAndInstallIntoParentViewController:self];
+    self.mapView.map.delegate = self;
+    completion(YES);
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @interface MapView : UIView
 
-@property (nonatomic, strong) UIWebView* mapView;
+@property (nonatomic, strong) UIWebView* map;
 @property (nonatomic, strong) UITextField *searchField;
 @property (nonatomic, strong) UIButton *searchButton;
 

@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MapProtocols.h"
 
 @interface MapEntity : NSObject
+<EntityProtocol>
 
 @end

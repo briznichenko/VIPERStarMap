@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapView.h"
+#import "MapProtocols.h"
 
 @interface MapViewController : UIViewController
+<PresenterProtocol, UIWebViewDelegate>
+
+@property (strong, nonatomic) MapView* mapView;
 
 @end

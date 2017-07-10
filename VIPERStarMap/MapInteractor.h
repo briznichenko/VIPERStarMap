@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MapProtocols.h"
+
+@class MapPresenter, MapEntity;
 
 @interface MapInteractor : NSObject
+<EntityProtocol, InteractorProtocol>
+
+@property (nonatomic, strong) MapPresenter* presenter;
+@property (nonatomic, strong) MapEntity* entity;
+
 
 @end

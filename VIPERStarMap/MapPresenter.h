@@ -9,9 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "MapViewController.h"
+#import "MapProtocols.h"
+
+@class MapInteractor;
 
 @interface MapPresenter : NSObject
+<PresenterProtocol>
 
-@property (nonatomic, strong) MapViewController *mapView;
+@property (strong, nonatomic) MapViewController* view;
+@property (strong, nonatomic) MapInteractor* interactor;
+
 
 @end

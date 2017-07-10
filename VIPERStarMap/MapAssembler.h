@@ -7,20 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RootAssembler.h"
 #import "MapViewController.h"
 #import "MapInteractor.h"
 #import "MapPresenter.h"
 #import "MapEntity.h"
 #import "MapRouter.h"
 
-@interface MapAssembler : NSObject
+@interface MapAssembler : RootAssembler
 
-@property (nonatomic, strong) MapViewController* view;
-@property (nonatomic, strong) MapInteractor* interactor;
-@property (nonatomic, strong) MapPresenter* presenter;
-@property (nonatomic, strong) MapEntity* entity;
-@property (nonatomic, strong) MapRouter* router;
-
--(instancetype) initAndAssemble;
+@property (strong, nonatomic) MapPresenter* presenter;
 
 @end
